@@ -1,0 +1,18 @@
+<h1>Game#show</h1>
+<table>
+<tr>
+
+<% index = 1 %>
+
+<% @game.letters.each_char do |item| %>
+    <td><%= item %></td>
+
+    <% if index % @game.row_letters == 0 %>
+      </tr><tr>
+    <% end %>
+
+    <% index += 1 %>
+
+<% end %>
+</tr>
+</table>

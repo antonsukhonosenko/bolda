@@ -1,19 +1,24 @@
 Bolda::Application.routes.draw do
-  get "game/show"
+  get "games/show/:id", :to => "games#show", :as => :show
 
-  get "game/new"
+  get "games/new"
 
-  get "game/delete"
+  get "games/delete"
 
-  get "game/join"
+  get "games/join"
 
-  get "game/leave"
+  get "games/leave"
 
-  get "game/finish"
+  get "games/finish"
 
-  get "game/skipturn"
+  get "games/skipturn"
 
-  get "game/newturn"
+  get "games/newturn"
+
+  resources :games
+
+  root :to => 'games#new'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
