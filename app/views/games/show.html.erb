@@ -4,7 +4,8 @@
 
 <% index = 1 %>
 
-<% @game.letters.each_char do |item| %>
+<% @game.letters.split(//).each do |item| %>
+
     <td><%= item %></td>
 
     <% if index % @game.row_letters == 0 %>
@@ -14,5 +15,6 @@
     <% index += 1 %>
 
 <% end %>
+
 </tr>
 </table>
