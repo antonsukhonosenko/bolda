@@ -8,19 +8,21 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(params[:game])
-
-      @game.row_letters = @game.letters.length
-      volume = @game.row_letters * @game.row_letters
-
-      @game.letters = ''.ljust(volume+1, '•') # create String of pre-defined amount of chars
-
-      @game.letters[volume/2] = params[:game][:letters]
-
+    @game.row_letters = @game.letters.length
 
     if @game.save
-      render :text => 'Game successfully created!<br />'+@game.letters
+
+      volume = @game.row_letters * (@game.row_letters - 1)
+
+      @game.letters = ''.ljust(volume+1, '•') # create String of pre-defined amount of chars
+      @game.letters[@game.row_letters * (@game.row_letters/2)] = params[:game][:letters]
+
+      @game.save!
+
+      flash[:notice] = 'Game successfully created!'
+      redirect_to :action => 'show', :id => @game.id
     else
-      redirect_to :action => 'new', :alert => "Game could not be created"
+      render :action => 'new'
     end
   end
 
