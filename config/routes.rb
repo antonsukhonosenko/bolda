@@ -15,6 +15,8 @@ Bolda::Application.routes.draw do
 
   get "games/newturn"
 
+  post 'games/letter'
+
   resources :games
 
   root :to => 'games#new'

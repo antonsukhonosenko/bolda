@@ -48,4 +48,8 @@ class GamesController < ApplicationController
   def newturn
   end
 
+  def letter
+    logger.info(params)
+  end
+
 end

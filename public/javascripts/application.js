@@ -2,6 +2,17 @@ $(document).ready(function() {
 
     var saved_cell;
 
+    $("#body").click(function(event) {
+
+        if(saved_cell) {
+            saved_cell.html('•');
+            saved_cell = null;
+        }
+
+        $('.lettercell').css('background-color', 'transparent');
+    });
+
+
     $('.lettercell').click(function(event){
 
         // if there's letter, disallow editing
@@ -10,7 +21,7 @@ $(document).ready(function() {
 
         var et = $(event.target)
 
-        if(et.html() == '•') {
+        if(et.html() == '•') /* TODO: and there's a letter in at least one of 4 nearest cells */ {
 
             if(saved_cell) {
                 saved_cell.html('•');
@@ -23,6 +34,19 @@ $(document).ready(function() {
                     et.html($('#letter_input').val());
                     saved_cell = null;
 
+                    // ajax isn't sending properly
+
+                    $.ajax({
+                        url: '/games/letter?',
+                        data: 'letter='+et.html()+'&position='+et.id.split('_')[1],
+                        success: function(data){
+                            alert('wow');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                           alert("Cannot add letter"+ xhr.result);
+                        }
+                    });
+
                     // on letter input confirmation, send ajax to server and change cell.
                     // also change local table cell back to non-editable, but with letter in it
                     // cell with letter cannot be edited one more time
@@ -32,7 +56,12 @@ $(document).ready(function() {
 
             saved_cell = et;
         } else if (et[0].tagName=='TD') {
+            /* TODO: and there's a RED letter in at least one of 4 nearest cells */
             et.css('background-color', 'red');
         }
+
+
+        event.stopPropagation();
     });
+
 });
