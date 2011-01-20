@@ -1,11 +1,21 @@
+# coding: utf-8
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+  row_letters: 5
+  letters: "••••••••••мопед••••••••••"
+
 # column: value
 #
-two: {}
-#  column: value
+two:
+  row_letters: 6
+  letters: "••••••••••••персен••••••••••••••••••"  # two above, three below
+
+threeß:
+  row_letters: 7
+  letters: "•••••••••••••••••••••колбаса•••••••••••••••••••••"
