@@ -49,7 +49,14 @@ class GamesController < ApplicationController
   end
 
   def letter
-    logger.info(params)
+    @game = Game.find(params[:game])
+
+    @game.letters[params[:position].to_i-1] = params[:letter]
+
+    if @game.save! # not saved for some reason? SQLite?
+      render :text => @game.letters
+    end
+
   end
 
 end

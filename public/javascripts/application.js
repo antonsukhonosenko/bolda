@@ -36,14 +36,21 @@ $(document).ready(function() {
 
                     // ajax isn't sending properly
 
+                    // http://127.0.0.1:3000/games/letter?game=51&position=5&letter=f - works
+
                     $.ajax({
                         url: '/games/letter?',
-                        data: 'letter='+et.html()+'&position='+et.id.split('_')[1],
+                        data:   {
+                            game : "<%= @game.id %>",  // is not transformed!!!
+                            letter : et.html(),
+                            position: et.attr('id').split('_')[1],
+                        },
+                                // "&game=<%= params[:id] %>&letter="+et.html()+'&position='+et.attr('id').split('_')[1],
                         success: function(data){
-                            alert('wow');
+                            alert(data);
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
-                           alert("Cannot add letter"+ xhr.result);
+                           alert("Cannot add letter");
                         }
                     });
 
@@ -55,9 +62,14 @@ $(document).ready(function() {
             });
 
             saved_cell = et;
-        } else if (et[0].tagName=='TD') {
-            /* TODO: and there's a RED letter in at least one of 4 nearest cells */
-            et.css('background-color', 'red');
+        } else if (et[0].tagName=='TD') /* TODO: and there's a RED letter in at least one of 4 nearest cells */ {
+
+
+            if(et.css('background-color')=='red') /* TODO: and there's a RED letter only in 1 nearest cell */ {
+                et.css('background-color', 'transparent');
+            } else {
+                et.css('background-color', 'red');
+            }
         }
 
 

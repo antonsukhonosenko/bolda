@@ -1,4 +1,5 @@
 Bolda::Application.routes.draw do
+
   get "games/show/:id", :to => "games#show", :as => :show
 
   get "games/new"
@@ -15,11 +16,13 @@ Bolda::Application.routes.draw do
 
   get "games/newturn"
 
-  post 'games/letter'
+  get 'games/letter', :to => "games#letter", :as => :letter
 
   resources :games
 
   root :to => 'games#new'
+
+  match 'games/letter' => 'games#letter'
 
 
   # The priority is based upon order of creation:

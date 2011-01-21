@@ -35,18 +35,18 @@ gem 'ruby_parser'
 
 # the latest rspec rails needs to be under development to work properly for some reason
 group :development do
-gem "rspec-rails", ">= 2.0.0.beta.1"
+  gem "rspec-rails", ">= 2.0.0.beta.1"
 end
 
 # Cucumber on Rails 3 http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc
 group :test do
-gem "factory_girl_rails"
-gem 'autotest'
-gem 'capybara'
-gem 'database_cleaner'
-gem 'cucumber-rails'
-gem 'cucumber'
-gem 'spork'
-gem 'launchy'
-gem 'webrat'
+  gem "factory_girl_rails"
+  gem 'autotest'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'
+  gem 'webrat'
 end
