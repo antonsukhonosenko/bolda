@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("#body").click(function(event) {
 
         if(saved_cell) {
-            saved_cell.html('•');
+            saved_cell.html('-');
             saved_cell = null;
         }
 
@@ -21,10 +21,10 @@ $(document).ready(function() {
 
         var et = $(event.target)
 
-        if(et.html() == '•') /* TODO: and there's a letter in at least one of 4 nearest cells */ {
+        if(et.html() == '-') /* TODO: and there's a letter in at least one of 4 nearest cells */ {
 
             if(saved_cell) {
-                saved_cell.html('•');
+                saved_cell.html('-');
             }
 
             et.html('<input id="letter_input" type="text" style="width:20px"></input>');
@@ -36,12 +36,16 @@ $(document).ready(function() {
 
                     // ajax isn't sending properly
 
-                    // http://127.0.0.1:3000/games/letter?game=51&position=5&letter=f - works
+                    // http://127.0.0.1:3000/games/letter?game=51&position=1&letter=f - works
+
+                    href = location.href.split('/');
+
+                    alert(href[href.length-1]);
 
                     $.ajax({
                         url: '/games/letter?',
                         data:   {
-                            game : "<%= @game.id %>",  // is not transformed!!!
+                            game : href[href.length-1],  // is not transformed!!!
                             letter : et.html(),
                             position: et.attr('id').split('_')[1],
                         },

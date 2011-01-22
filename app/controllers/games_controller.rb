@@ -14,7 +14,7 @@ class GamesController < ApplicationController
 
       volume = @game.row_letters * (@game.row_letters - 1)
 
-      @game.letters = ''.ljust(volume+1, '•') # create String of pre-defined amount of chars
+      @game.letters = ''.ljust(volume+1, '-') # create String of pre-defined amount of chars
       @game.letters[@game.row_letters * (@game.row_letters/2)] = params[:game][:letters]
 
       @game.save!
@@ -48,15 +48,15 @@ class GamesController < ApplicationController
   def newturn
   end
 
-  def letter
+  def letter  # shit of a hell. mysql doesn't set up. sqlite doesn't SAVE db saying it does
     @game = Game.find(params[:game])
 
-    @game.letters[params[:position].to_i-1] = params[:letter]
+    letters = @game.letters
+    letters[params[:position].to_i-1] = params[:letter]
 
-    if @game.save! # not saved for some reason? SQLite?
-      render :text => @game.letters
+    if @game.update_attributes!(:letters => letters) # not saved for some reason? SQLite?
+      render :text => params[:position].to_i-1 # letters
     end
-
   end
 
 end
