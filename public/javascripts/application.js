@@ -51,7 +51,7 @@ $(document).ready(function() {
                         },
                                 // "&game=<%= params[:id] %>&letter="+et.html()+'&position='+et.attr('id').split('_')[1],
                         success: function(data){
-                            alert(data);
+                            // alert(data);
                         },
                         error: function(xhr, ajaxOptions, thrownError) {
                            alert("Cannot add letter");

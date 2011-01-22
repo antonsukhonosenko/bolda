@@ -1,5 +1,11 @@
 # coding: utf-8
 
+class String
+  def force_encoding(enc)
+    self
+  end
+end
+
 class GamesController < ApplicationController
 
   def new
