@@ -40,7 +40,7 @@ $(document).ready(function() {
 
                     href = location.href.split('/');
 
-                    alert(href[href.length-1]);
+                    // alert(href[href.length-1]);
 
                     $.ajax({
                         url: '/games/letter?',

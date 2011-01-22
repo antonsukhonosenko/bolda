@@ -5,7 +5,7 @@
 
 <% index = 1 %>
 
-<% @game.letters.split(//).each do |item| %>
+<% @game.letters.force_encoding('UTF-8').split(//).each do |item| %>
 
     <td class="lettercell" id="cell_<%= index %>"><%= item %></td>
 
