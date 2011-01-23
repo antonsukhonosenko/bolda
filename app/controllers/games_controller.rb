@@ -17,7 +17,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(params[:game])
-    @game.row_letters = @game.letters.force_encoding('UTF-8').length
+    @game.row_letters = @game.letters.force_encoding('UTF-8').size
 
     if @game.save
 
