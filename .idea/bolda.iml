@@ -168,6 +168,8 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] polyglot (v0.3.1, /Users/admin/.rvm/gems/ruby-1.9.2-p0/gems/polyglot-0.3.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rubyzip (v0.9.4, /Users/admin/.rvm/gems/ruby-1.9.2-p0/gems/rubyzip-0.9.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.8, /Users/admin/.rvm/gems/ruby-1.9.2-p0/gems/treetop-1.4.8)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] taps (v0.3.15, /Users/admin/.rvm/gems/ruby-1.9.2-p0/gems/taps-0.3.15)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] sequel (v3.17.0, /Users/admin/.rvm/gems/ruby-1.9.2-p0/gems/sequel-3.17.0)" level="application" />
   </component>
 </module>
 
