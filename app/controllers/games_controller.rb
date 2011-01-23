@@ -60,7 +60,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:game])
 
     letters = @game.letters.to_my_utf8
-    letters[params[:position].to_i-1] = params[:letter].to_my_utf8
+    letters[params[:position].to_i-1, 1] = params[:letter].to_my_utf8
 
     if @game.update_attributes!(:letters => letters.to_my_utf8) # not saved for some reason? SQLite?
       render :text => @game.letters.to_my_utf8
