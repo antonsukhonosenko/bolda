@@ -4,6 +4,6 @@ Input a word of 5 to 8 letters
 
 <% form_for(@game) do |f| %>
     <%= render "error_messages", :target => @game %>
-    <%= f.text_field :letters %><br />
+    <%= f.text_field :letters, :value => '' %><br />
     <%= f.submit %>
 <% end %>

@@ -1,14 +1,5 @@
 # coding: utf-8
 
-require 'rubygems'
-require 'iconv'
-
-class String
-  def force_encoding(enc)
-    ::Iconv.conv('UTF-8//IGNORE', 'UTF-8', self + ' ')[0..-2]
-  end
-end
-
 class GamesController < ApplicationController
 
   def new
@@ -17,14 +8,28 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(params[:game])
-    @game.row_letters = @game.letters.force_encoding('UTF-8').size
+
+    # let's assume we don't have multibyte mixing, øåß are skipped intentionally
+
+    m = /[a-zA-Z]/.match(@game.letters)
+
+    if !m
+      @game.row_letters = @game.letters.mb_chars.length / 2
+    else
+      @game.row_letters = @game.letters.mb_chars.length
+    end
+
+    # to avoid ruby 1.8 vs 1.9 issues in Heroku, we should count non-ASCII chars in string,
+    # and add number of such bytes to overall length
+    # all by myself, oh dear
+
 
     if @game.save
 
       volume = @game.row_letters * (@game.row_letters - 1)
 
       @game.letters = ''.ljust(volume, '-') # create String of pre-defined amount of chars
-      @game.letters = @game.letters.insert(@game.row_letters * (@game.row_letters / 2), params[:game][:letters].force_encoding('UTF-8'))
+      @game.letters = @game.letters.insert(@game.row_letters * (@game.row_letters / 2), params[:game][:letters].mb_chars)
 
       @game.save!
 
@@ -60,10 +65,10 @@ class GamesController < ApplicationController
   def letter  # shit of a hell. mysql doesn't set up. sqlite doesn't SAVE db saying it does
     @game = Game.find(params[:game])
 
-    letters = @game.letters.force_encoding('UTF-8')
-    letters[params[:position].to_i-1] = params[:letter].force_encoding('UTF-8')
+    letters = @game.letters.mb_chars
+    letters[params[:position].to_i-1] = params[:letter].mb_chars
 
-    if @game.update_attributes!(:letters => letters.force_encoding('UTF-8')) # not saved for some reason? SQLite?
+    if @game.update_attributes!(:letters => letters.mb_chars) # not saved for some reason? SQLite?
       render :text => @game.letters
     end
   end

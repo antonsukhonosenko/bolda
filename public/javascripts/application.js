@@ -49,7 +49,7 @@ $(document).ready(function() {
                             letter : et.html(),
                             position: et.attr('id').split('_')[1],
                         },
-                                // "&game=<%= params[:id] %>&letter="+et.html()+'&position='+et.attr('id').split('_')[1],
+                            // "&game=<%= params[:id] %>&letter="+et.html()+'&position='+et.attr('id').split('_')[1],
                         success: function(data){
                             // alert(data);
                         },
@@ -78,6 +78,16 @@ $(document).ready(function() {
 
 
         event.stopPropagation();
+    });
+
+    $('form#new_game').submit(function(){
+       // not allow spaces and mixed alphabet chars in form
+       // also, to not mess with ruby, we could calculate length here and pass it as hidden param
+    });
+
+    $('#game_letters').change(function(){
+       // not allow spaces and mixed alphabet chars in form
+       // also, to not mess with ruby, we could calculate length here and pass it as hidden param
     });
 
 });
