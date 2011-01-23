@@ -2,8 +2,9 @@
 
 require 'rubygems'
 require 'iconv'
+
 class String
-  def to_my_utf8
+  def force_encoding(enc)
     ::Iconv.conv('UTF-8//IGNORE', 'UTF-8', self + ' ')[0..-2]
   end
 end
@@ -60,7 +61,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:game])
 
     letters = @game.letters.force_encoding('UTF-8')
-    letters[params[:position].to_i-1] = params[:letter]
+    letters[params[:position].to_i-1] = params[:letter].force_encoding('UTF-8')
 
     if @game.update_attributes!(:letters => letters.force_encoding('UTF-8')) # not saved for some reason? SQLite?
       render :text => @game.letters
