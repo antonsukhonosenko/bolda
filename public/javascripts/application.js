@@ -81,13 +81,18 @@ $(document).ready(function() {
     });
 
     $('form#new_game').submit(function(){
-       // not allow spaces and mixed alphabet chars in form
-       // also, to not mess with ruby, we could calculate length here and pass it as hidden param
+      // not allow spaces and mixed alphabet chars in form
+      // also, to not mess with ruby, we could calculate length here and pass it as hidden param
+
+      $('#game_row_letters').val($('#game_letters').val().length);
+
+      // TODO: disallow spaces
+
     });
 
     $('#game_letters').change(function(){
-       // not allow spaces and mixed alphabet chars in form
-       // also, to not mess with ruby, we could calculate length here and pass it as hidden param
+      // not allow spaces and mixed alphabet chars in form
+      // also, to not mess with ruby, we could calculate length here and pass it as hidden param
     });
 
 });

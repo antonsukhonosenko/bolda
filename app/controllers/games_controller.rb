@@ -9,21 +9,6 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(params[:game])
 
-    # let's assume we don't have multibyte mixing, øåß are skipped intentionally
-
-    m = /[a-zA-Z]/.match(@game.letters)
-
-    if !m
-      @game.row_letters = @game.letters.mb_chars.length / 2
-    else
-      @game.row_letters = @game.letters.mb_chars.length
-    end
-
-    # to avoid ruby 1.8 vs 1.9 issues in Heroku, we should count non-ASCII chars in string,
-    # and add number of such bytes to overall length
-    # all by myself, oh dear
-
-
     if @game.save
 
       volume = @game.row_letters * (@game.row_letters - 1)
