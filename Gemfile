@@ -30,6 +30,9 @@ gem 'taps'
 #   gem 'webrat'
 # end
 
+gem 'devise'
+gem 'haml'
+
 # devise needs these if you are using HAML 10.8.10
 gem 'hpricot'
 gem 'ruby_parser'

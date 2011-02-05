@@ -1,5 +1,7 @@
 Bolda::Application.routes.draw do
 
+  devise_for :users
+
   get "games/show/:id", :to => "games#show", :as => :show
 
   get "games/new"
@@ -17,6 +19,8 @@ Bolda::Application.routes.draw do
   get "games/newturn"
 
   get 'games/letter', :to => "games#letter", :as => :letter
+
+  get 'games/claimword', :to => "games#claimword", :as => :claimword
 
   resources :games
 

@@ -11,11 +11,20 @@ end
 
 class GamesController < ApplicationController
 
+  before_filter :authenticate_user!, :except => [:login]
+
+  def index
+    # @things = current_user.things
+  end
+
+
   def new
     @game = Game.new
   end
 
   def create
+    params[:game][:letters] = params[:game][:letters].to_my_utf8
+
     @game = Game.new(params[:game])
 
     if @game.save
@@ -59,12 +68,20 @@ class GamesController < ApplicationController
   def letter  # shit of a hell. mysql doesn't set up. sqlite doesn't SAVE db saying it does
     @game = Game.find(params[:game])
 
+    # TODO: if letter position doesn't have any neighbours in 4 closest positions,
+    # TODO: or theresn't a letter in params[:letter] at all -
+    # TODO: then this is a fraud, ignore it
+
     letters = @game.letters.to_my_utf8
     letters[params[:position].to_i-1, 1] = params[:letter].to_my_utf8
 
     if @game.update_attributes!(:letters => letters.to_my_utf8) # not saved for some reason? SQLite?
       render :text => @game.letters.to_my_utf8
     end
+  end
+
+  def claimword
+    render :text => params[:word]
   end
 
 end
