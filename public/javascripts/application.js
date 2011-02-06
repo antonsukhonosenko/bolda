@@ -1,9 +1,12 @@
 var saved_cell;
 var proposed_letter;
+var last_cell;
 
 $(document).ready(function() {
 
     $("#body").click(function(event) {
+
+        last_cell = null;
 
         if(saved_cell) {
             saved_cell.html('-');
@@ -53,21 +56,38 @@ $(document).ready(function() {
 
             saved_cell = et;
         } else if (et[0].tagName=='TD') {
-            /* TODO: and there's a RED letter in at least one of 4 nearest cells */
-
             if(et.css('background-color')=='red') {
-                /* TODO: and there's a RED letter only in 1 nearest cell */
-                // remove this letter from $("#word")
-                /* TODO: allow removing letters only from start or end of the word */
-
-                et.css('background-color', 'transparent');
-
+                // TODO stub; refactor
             } else {
-                et.css('background-color', 'red');
-                $("#word").html($("#word").html()+et.html());
+
+                if(last_cell==null) {
+                    et.css('background-color', 'red');
+                    $("#word").html($("#word").html()+et.html());
+
+                    last_cell = et;
+
+                } else {
+                    // check nearest cells to have red
+
+                    last_cell_number = last_cell.attr('id').split('_')[1];
+                    et_number = et.attr('id').split('_')[1];
+                    row_letters = $('#row_letters').html();
+
+                    // alert(last_cell_number - et_number);
+                    // alert(row_letters);
+
+                    if(((last_cell_number - et_number)==-1)
+                            ||((last_cell_number - et_number)==1)
+                            ||((last_cell_number - et_number)==+row_letters)
+                            ||((last_cell_number - et_number)==-row_letters)) {
+
+                        et.css('background-color', 'red');
+                        $("#word").html($("#word").html()+et.html());
+                        last_cell = et;
+                    }
+                }
             }
         }
-
 
         event.stopPropagation();
     });
@@ -107,6 +127,7 @@ $(document).ready(function() {
             success: function(data){
                 if(data != "error") {
                     save_letter();
+                    last_cell = null;
                 }
                 else {
                     alert("Incorrect word");
