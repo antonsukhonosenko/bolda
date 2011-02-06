@@ -34,6 +34,8 @@ class GamesController < ApplicationController
       @game.letters = ''.ljust(volume, '-').to_my_utf8 # create String of pre-defined amount of chars
       @game.letters = @game.letters.to_my_utf8.insert(@game.row_letters * (@game.row_letters / 2), params[:game][:letters].to_my_utf8)
 
+      @game.users << current_user
+
       @game.save!
 
       flash[:notice] = 'Game successfully created!'
@@ -81,7 +83,8 @@ class GamesController < ApplicationController
   end
 
   def claimword
-    render :text => params[:word]
+    render :text => params[:word]  # or 'error' if word is not correct
+    # but, we should use state machine here, to better organize turns
   end
 
 end

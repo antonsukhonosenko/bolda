@@ -105,7 +105,12 @@ $(document).ready(function() {
                 word : $("#word").html()  // is not transformed!!!
             },
             success: function(data){
-                save_letter();
+                if(data != "error") {
+                    save_letter();
+                }
+                else {
+                    alert("Incorrect word");
+                }
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert("Cannot claim word");
