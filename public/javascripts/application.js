@@ -21,16 +21,20 @@ $(document).ready(function() {
     $('.lettercell').click(function(event){
 
         // if there's letter, disallow editing
+        // !!if there was also one letter added, disallow editing too!!
         // if there's empty cell, change it to editable area and allow input of single letter
         // if there's another cell editable, restore it's original state before allowing current cell editing
 
-        var et = $(event.target)
+        var et = $(event.target);
 
-        if(et.html() == '-') /* TODO: and there's a letter in at least one of 4 nearest cells */ {
+        if(et.html() == '-') {
+        /* TODO: and there's a letter in at least one of 4 nearest cells
+                 (copy from claiming words) */
 
             if(saved_cell) {
                 saved_cell.html('-');
-            }
+            };
+
 
             et.html('<input id="letter_input" type="text" style="width:20px"></input>');
 
@@ -41,6 +45,7 @@ $(document).ready(function() {
                     // remember position (container element) of letter being added
                     // so if user can't claim a word and skips,
                     // letter isn't saved
+
 
                     et.html($('#letter_input').val());
                     saved_cell = null;

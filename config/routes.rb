@@ -28,6 +28,12 @@ Bolda::Application.routes.draw do
 
   match 'games/letter' => 'games#letter'
 
+  devise_scope :user do
+    get "register"  => "devise/registrations#new"
+    get "login"  => "devise/sessions#new"
+    get "logout" => "devise/sessions#destroy"
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

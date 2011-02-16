@@ -1,12 +1,11 @@
 <h1>Create new game</h1>
 
-<%= current_user.inspect %>
-
 Input a word of 5 to 8 letters
 
 <% form_for(@game) do |f| %>
-    <%= render "error_messages", :target => @game %>
     <%= f.text_field :letters, :value => '' %><br />
     <%= f.hidden_field :row_letters %>
     <%= f.submit %>
 <% end %>
+
+or show full <%= link_to "list of games", :controller => 'games', :action => 'index' %>

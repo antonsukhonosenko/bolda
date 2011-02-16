@@ -1,0 +1,7 @@
+<h1>Game#index</h1>
+<ul>
+<% @games.each do |g| %>
+    <li><%= link_to g.name, :controller => 'games', :action => 'show', :id => g.id %></li>
+<% end %>
+</ul>
+<%= link_to "New game", :controller => 'games', :action => 'new' %>

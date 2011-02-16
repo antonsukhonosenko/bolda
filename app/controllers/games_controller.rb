@@ -15,6 +15,7 @@ class GamesController < ApplicationController
 
   def index
     # @things = current_user.things
+    @games = Game.find(:all)
   end
 
 
@@ -28,6 +29,8 @@ class GamesController < ApplicationController
     @game = Game.new(params[:game])
 
     if @game.save
+
+      @game.name = @game.letters
 
       volume = @game.row_letters * (@game.row_letters - 1)
 

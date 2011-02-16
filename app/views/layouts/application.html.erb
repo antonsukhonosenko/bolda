@@ -14,9 +14,11 @@
 
 </head>
 <body id="body">
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div>
+<%= link_to current_user.name, '/profile' unless !current_user %>
+<%= link_to "Logout", '/logout' unless !current_user %>
+</div>
+<%= render "error_messages", :target => @game unless !@game %>
 
 
 <%= yield %>
