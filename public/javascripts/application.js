@@ -29,13 +29,15 @@ $(document).ready(function() {
         var et = $(event.target);
 
         if(et.html() == '-') {
-        /* TODO: and there's a letter in at least one of 4 nearest cells
-                 (copy from claiming words) */
-
             if (letter_added) {
                 alert('Letter was already added!');
                 return;
             }
+
+        /* TODO: and there's a letter in at least one of 4 nearest cells
+                 (copy from claiming words) */
+            // this is hard because now table hasn't any dimension indicators, and no linked list
+
 
             if(saved_cell) {
                 saved_cell.html('-');
