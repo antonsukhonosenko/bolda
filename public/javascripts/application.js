@@ -1,6 +1,7 @@
 var saved_cell;
 var proposed_letter;
 var last_cell;
+var letter_added;
 
 $(document).ready(function() {
 
@@ -31,10 +32,14 @@ $(document).ready(function() {
         /* TODO: and there's a letter in at least one of 4 nearest cells
                  (copy from claiming words) */
 
+            if (letter_added) {
+                alert('Letter was already added!');
+                return;
+            }
+
             if(saved_cell) {
                 saved_cell.html('-');
             };
-
 
             et.html('<input id="letter_input" type="text" style="width:20px"></input>');
 
@@ -51,6 +56,7 @@ $(document).ready(function() {
                     saved_cell = null;
 
                     proposed_letter = et;
+                    letter_added = true;
 
                     // on letter input confirmation, send ajax to server and change cell.
                     // also change local table cell back to non-editable, but with letter in it
