@@ -58,6 +58,12 @@ $(document).ready(function() {
 
             alert(cell_bottom.html());
 
+            // TODO: check if cell_top contains letter
+            //       OR cell_bottom contains letter
+            //       OR current cell is not leftmost AND cell_left contains letter
+            //       OR current cell is not rightmost AND cell_right contains letter
+            // if none is correct, don't allow to add letter
+
             if(saved_cell) {
                 saved_cell.html('-');
             };

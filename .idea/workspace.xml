@@ -30,7 +30,7 @@
       <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="99" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.54317546">
+            <state line="64" column="60" selection-start="2117" selection-end="2117" vertical-scroll-proportion="0.7103064">
               <folding />
             </state>
           </provider>
@@ -693,7 +693,7 @@
     <option name="CHANGED_ON_SERVER_INTERVAL" value="5" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="done: edge issues when claiming a word&#10;todo: ordered letter adding (get nearest cells code from ordered word claiming, work with edge issues too)&#10;todo: turns and voting state machine" />
+    <option name="LAST_COMMIT_MESSAGE" value="done: defining top, left, bottom and right cells of clicked cell for adding letter&#10;todo: ordered letter adding (get nearest cells code from ordered word claiming, work with edge issues too)&#10;todo: turns and voting state machine" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -725,6 +725,7 @@
     <MESSAGE value="done: list of games, error messages, planning;&#10;todo: ordered letter adding (get nearest cells code from ordered word claiming)&#10;todo: turns and voting state machine" />
     <MESSAGE value="done: list of games, error messages, planning;&#10;done: one-letter addition at a time&#10;todo: ordered letter adding (get nearest cells code from ordered word claiming)&#10;todo: turns and voting state machine" />
     <MESSAGE value="done: edge issues when claiming a word&#10;todo: ordered letter adding (get nearest cells code from ordered word claiming, work with edge issues too)&#10;todo: turns and voting state machine" />
+    <MESSAGE value="done: defining top, left, bottom and right cells of clicked cell for adding letter&#10;todo: ordered letter adding (get nearest cells code from ordered word claiming, work with edge issues too)&#10;todo: turns and voting state machine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -829,7 +830,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="99" selection-start="1567" selection-end="1567" vertical-scroll-proportion="0.54317546">
+        <state line="64" column="60" selection-start="2117" selection-end="2117" vertical-scroll-proportion="0.7103064">
           <folding />
         </state>
       </provider>
