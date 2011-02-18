@@ -35,34 +35,36 @@ $(document).ready(function() {
                 return;
             }
 
-            /* TODO: and there's a letter in at least one of 4 nearest cells
+            /* if there's a letter in at least one of 4 nearest cells
                  (copy from claiming words) */
 
-            // this is hard because now table hasn't any dimension indicators,
-            // and no linked list
             // let's do it with bruteforce now, then refactor
 
             row_letters = $('#row_letters').html();
 
             et_number = et.attr('id').split('_')[1];
 
-            left = parseInt(et_number)-1.0+'';
-            right = parseInt(et_number)+1.0+'';
-            top = parseInt(et_number)-parseInt(row_letters)+'';
-            bottom = parseInt(et_number)+parseInt(row_letters)+'';
+            left_number = parseInt(et_number)-1.0+'';
+            right_number = parseInt(et_number)+1.0+'';
+            top_number = parseInt(et_number)-parseInt(row_letters)+'';
+            bottom_number = parseInt(et_number)+parseInt(row_letters)+'';
 
-            cell_left = $('#cell_'+left);
-            cell_right = $('#cell_'+right);
-            cell_top = $('#cell_'+top);
-            cell_bottom = $('#cell_'+bottom);
+            cell_left = $('#cell_'+left_number);
+            cell_right = $('#cell_'+right_number);
+            cell_top = $('#cell_'+top_number);
+            cell_bottom = $('#cell_'+bottom_number);
 
-            alert(cell_bottom.html());
+            // alert('#cell_'+top_number);
 
-            // TODO: check if cell_top contains letter
-            //       OR cell_bottom contains letter
-            //       OR current cell is not leftmost AND cell_left contains letter
-            //       OR current cell is not rightmost AND cell_right contains letter
-            // if none is correct, don't allow to add letter
+            // THIS WORKS
+            if(!((cell_top && cell_top.html().match(/^[a-zA-Zа-яА-ЯøØåÅ]$/))
+                    ||(cell_bottom && cell_bottom.html().match(/^[a-zA-Zа-яА-ЯøØåÅ]$/))
+                    ||(cell_right && cell_right.html().match(/^[a-zA-Zа-яА-ЯøØåÅ]$/) && (et_number % row_letters))
+                    ||(cell_left && cell_left.html().match(/^[a-zA-Zа-яА-ЯøØåÅ]$/) && ((et_number-1) % row_letters)))) {
+
+                // alert('not allowed to put a letter there');
+                return;
+            }
 
             if(saved_cell) {
                 saved_cell.html('-');
