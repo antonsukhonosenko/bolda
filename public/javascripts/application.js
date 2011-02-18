@@ -118,7 +118,8 @@ $(document).ready(function() {
 
                     if(((last_cell_number - et_number)==-1 && (last_cell_number % row_letters)) // nearby letters not on the edge, new after old
                             ||((last_cell_number - et_number)==1  && (et_number % row_letters)) // nearby letters not on the edge, new before old
-                            ||((last_cell_number - et_number)==-row_letters)) {
+                            ||((last_cell_number - et_number)==-row_letters)
+                            ||((last_cell_number - et_number)==row_letters)) {
 
                         et.css('background-color', 'red');
                         $("#word").html($("#word").html()+et.html());
@@ -167,6 +168,7 @@ $(document).ready(function() {
                 if(data != "error") {
                     save_letter();
                     last_cell = null;
+                    letter_added = false;
                 }
                 else {
                     alert("Incorrect word");
