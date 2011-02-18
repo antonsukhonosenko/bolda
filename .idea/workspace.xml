@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9274c01e-ae09-41bb-84a2-104a5092bee7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/games/show.html.erb" afterPath="$PROJECT_DIR$/app/views/games/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/application.js" afterPath="$PROJECT_DIR$/public/javascripts/application.js" />
     </list>
     <ignored path="bolda.iws" />
@@ -30,16 +31,16 @@
       <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="97" selection-start="6293" selection-end="6293" vertical-scroll-proportion="0.7938719">
+            <state line="99" column="99" selection-start="3463" selection-end="3463" vertical-scroll-proportion="0.62674093">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/game.rb">
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/games/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="21" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0">
+            <state line="10" column="98" selection-start="273" selection-end="273" vertical-scroll-proportion="-6.25">
               <folding />
             </state>
           </provider>
@@ -162,13 +163,13 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/game.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/views/games/show.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/all.css" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/games_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/games/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/games/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/games/show.html.erb" />
         <option value="$PROJECT_DIR$/public/javascripts/application.js" />
       </list>
     </option>
@@ -693,7 +694,7 @@
     <option name="CHANGED_ON_SERVER_INTERVAL" value="5" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="done: add checking of letter in _real_ nearby cells, and if any, allow adding letter&#10;todo: fix issue with bottom-then-top letter claiming&#10;todo: turns and voting state machine" />
+    <option name="LAST_COMMIT_MESSAGE" value="done: add checking of letter in _real_ nearby cells, and if any, allow adding letter&#10;done: fix issue with bottom-then-top letter claiming&#10;&#10;todo: turns and voting state machine" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -728,6 +729,7 @@
     <MESSAGE value="done: defining top, left, bottom and right cells of clicked cell for adding letter&#10;todo: ordered letter adding (get nearest cells code from ordered word claiming, work with edge issues too)&#10;todo: turns and voting state machine" />
     <MESSAGE value="done: defining top, left, bottom and right cells of clicked cell for adding letter&#10;todo: add checking of letter in _real_ nearby cells, and if any, allow adding letter&#10;todo: turns and voting state machine" />
     <MESSAGE value="done: add checking of letter in _real_ nearby cells, and if any, allow adding letter&#10;todo: fix issue with bottom-then-top letter claiming&#10;todo: turns and voting state machine" />
+    <MESSAGE value="done: add checking of letter in _real_ nearby cells, and if any, allow adding letter&#10;done: fix issue with bottom-then-top letter claiming&#10;&#10;todo: turns and voting state machine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -736,13 +738,6 @@
     <entry file="file://$PROJECT_DIR$/config/environment.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/games/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="20" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/all.css">
@@ -762,11 +757,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/game.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="21" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
@@ -830,9 +820,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/game.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="21" selection-start="72" selection-end="72" vertical-scroll-proportion="0.1253482">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/games/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="98" selection-start="273" selection-end="273" vertical-scroll-proportion="-6.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="97" selection-start="6293" selection-end="6293" vertical-scroll-proportion="0.7938719">
+        <state line="99" column="99" selection-start="3463" selection-end="3463" vertical-scroll-proportion="0.62674093">
           <folding />
         </state>
       </provider>

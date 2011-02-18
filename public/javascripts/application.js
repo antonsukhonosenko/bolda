@@ -98,7 +98,7 @@ $(document).ready(function() {
         } else if (et[0].tagName=='TD') {
             if(et.css('background-color')=='red') {
                 // TODO stub; refactor
-            } else {
+            } else if(et.html().match(/^[a-zA-Zа-яА-ЯøØåÅ]$/)) {
 
                 if(last_cell==null) {
                     et.css('background-color', 'red');
