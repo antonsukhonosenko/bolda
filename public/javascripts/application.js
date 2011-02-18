@@ -42,11 +42,21 @@ $(document).ready(function() {
             // and no linked list
             // let's do it with bruteforce now, then refactor
 
+            row_letters = $('#row_letters').html();
+
             et_number = et.attr('id').split('_')[1];
-            alert(et_number);
 
-            // cell_left = $('cell_'+et_number)
+            left = parseInt(et_number)-1.0+'';
+            right = parseInt(et_number)+1.0+'';
+            top = parseInt(et_number)-parseInt(row_letters)+'';
+            bottom = parseInt(et_number)+parseInt(row_letters)+'';
 
+            cell_left = $('#cell_'+left);
+            cell_right = $('#cell_'+right);
+            cell_top = $('#cell_'+top);
+            cell_bottom = $('#cell_'+bottom);
+
+            alert(cell_bottom.html());
 
             if(saved_cell) {
                 saved_cell.html('-');
