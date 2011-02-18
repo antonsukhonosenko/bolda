@@ -29,14 +29,23 @@ $(document).ready(function() {
         var et = $(event.target);
 
         if(et.html() == '-') {
+
             if (letter_added) {
                 alert('Letter was already added!');
                 return;
             }
 
-        /* TODO: and there's a letter in at least one of 4 nearest cells
+            /* TODO: and there's a letter in at least one of 4 nearest cells
                  (copy from claiming words) */
-            // this is hard because now table hasn't any dimension indicators, and no linked list
+
+            // this is hard because now table hasn't any dimension indicators,
+            // and no linked list
+            // let's do it with bruteforce now, then refactor
+
+            et_number = et.attr('id').split('_')[1];
+            alert(et_number);
+
+            // cell_left = $('cell_'+et_number)
 
 
             if(saved_cell) {
@@ -89,9 +98,8 @@ $(document).ready(function() {
                     // alert(last_cell_number - et_number);
                     // alert(row_letters);
 
-                    if(((last_cell_number - et_number)==-1)
-                            ||((last_cell_number - et_number)==1)
-                            ||((last_cell_number - et_number)==+row_letters)
+                    if(((last_cell_number - et_number)==-1 && (last_cell_number % row_letters)) // nearby letters not on the edge, new after old
+                            ||((last_cell_number - et_number)==1  && (et_number % row_letters)) // nearby letters not on the edge, new before old
                             ||((last_cell_number - et_number)==-row_letters)) {
 
                         et.css('background-color', 'red');
