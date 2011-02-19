@@ -108,7 +108,7 @@ private
   def check_player
     # check against games_users
     # get current_user
-    @game = Game.find(params[:id])
+    # @game = Game.find(params[:id])
   end
 
 end

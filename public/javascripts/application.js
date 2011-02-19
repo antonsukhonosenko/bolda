@@ -159,10 +159,14 @@ $(document).ready(function() {
             return;
         }
 
+        href = location.href.split('/');
+        game_id = href[href.length-1];
+
         $.ajax({
             url: '/games/claimword?',
             data:   {
-                word : $("#word").html()  // is not transformed!!!
+                // id : game_id,
+                word : $("#word").html(),  // is not transformed!!!
             },
             success: function(data){
                 if(data != "error") {
