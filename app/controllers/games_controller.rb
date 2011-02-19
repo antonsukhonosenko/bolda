@@ -12,6 +12,7 @@ end
 class GamesController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:login]
+  before_filter :check_player, :except => [:index, :new, :create, :join]
 
   def index
     # @things = current_user.things
@@ -86,8 +87,28 @@ class GamesController < ApplicationController
   end
 
   def claimword
+
+    # check against games_users
+
+    # get params[:word] and either:
+    # 1) check it against dictionary
+    # 2) save it for post-voting.
+    # 3) launch voting procedure at once
+
+    # set active_player_id to next player
+
+    # TODO: maintain list of players with access to this game
+
     render :text => params[:word]  # or 'error' if word is not correct
     # but, we should use state machine here, to better organize turns
+  end
+
+private
+
+  def check_player
+    # check against games_users
+    # get current_user
+    @game = Game.find(params[:id])
   end
 
 end
